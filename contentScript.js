@@ -11,11 +11,17 @@
     });
   };
 
+  const getDesc = (currentTime) => {
+    const init = prompt("Give a title");
+    const toAdd = init + ` (${getTime(currentTime)})`;
+    return toAdd;
+  }
+
   const addNewBookmarkEventHandler = async () => {
     const currentTime = youtubePlayer.currentTime;
     const newBookmark = {
       time: currentTime,
-      desc: "Bookmark at " + getTime(currentTime),
+      desc: getDesc(currentTime),
     };
 
     currentVideoBookmarks = await fetchBookmarks();

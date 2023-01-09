@@ -11,8 +11,8 @@ const addNewBookmark = (bookmarks, bookmark) => {
 
   setBookmarkAttributes("play", onPlay, controlsElement);
   setBookmarkAttributes("delete", onDelete, controlsElement);
-
-  newBookmarkElement.id = "bookmark-" + bookmark.time;
+  const reqSeconds = getSeconds(bookmark.time);
+  newBookmarkElement.id = "bookmark-" + String(reqSeconds);
   newBookmarkElement.className = "bookmark";
   newBookmarkElement.setAttribute("timestamp", bookmark.time);
 
@@ -20,6 +20,17 @@ const addNewBookmark = (bookmarks, bookmark) => {
   newBookmarkElement.appendChild(controlsElement);
   bookmarks.appendChild(newBookmarkElement);
 };
+
+const getSeconds = (t) => {
+  const time = String(t);
+  var hours = parseInt(time.split(":")[0]);
+  var mins = parseInt(time.split(":")[1]);
+  var secs = parseInt(time.split(":")[2]);
+
+  mins += hours * 60;
+  secs += mins * 60;
+  return secs 
+}
 
 const viewBookmarks = (currentBookmarks=[]) => {
   const bookmarksElement = document.getElementById("bookmarks");
@@ -50,8 +61,9 @@ const onPlay = async e => {
 const onDelete = async e => {
   const activeTab = await getActiveTabURL();
   const bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
+  const reqSeconds = getSeconds(bookmarkTime);
   const bookmarkElementToDelete = document.getElementById(
-    "bookmark-" + bookmarkTime
+    "bookmark-" + String(reqSeconds)
   );
 
   bookmarkElementToDelete.parentNode.removeChild(bookmarkElementToDelete);
@@ -60,6 +72,7 @@ const onDelete = async e => {
     type: "DELETE",
     value: bookmarkTime,
   }, viewBookmarks);
+  console.log(`deleted ${bookmarkTime}`);
 };
 
 const setBookmarkAttributes =  (src, eventListener, controlParentElement) => {
