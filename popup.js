@@ -30,7 +30,7 @@ const viewBookmarks = (currentBookmarks=[]) => {
       addNewBookmark(bookmarksElement, bookmark);
     }
   } else {
-    bookmarksElement.innerHTML = '<i class="row">No bookmarks to show</i>';
+    bookmarksElement.innerHTML = '<i class="row">No bookmarks currently</i>';
   }
 
   return;
@@ -84,10 +84,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       viewBookmarks(currentVideoBookmarks);
     });
-  } else {
+  } else if (activeTab.url.includes("youtube.com")) {
     const container = document.getElementsByClassName("container")[0];
 
-    container.innerHTML = '<div class="title">This is not a youtube video page.</div>';
+    container.innerHTML = '<div class="title">Select a video to get started.</div>';
+  }
+  else {
+    const container = document.getElementsByClassName("container")[0];
+
+    container.innerHTML = '<div class="title">Let\'s visit youtube and start bookmarking.</div>';
   }
 });
 
