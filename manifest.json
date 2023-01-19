@@ -1,7 +1,7 @@
 {
-  "name": "My YT Bookmarks",
-  "version": "0.1.0",
-  "description": "Saving timestamps in YT videos",
+  "name": "Youtube Marker",
+  "version": "0.1",
+  "description": "A Youtube learning companion which heps you mark the timestamps of the important points of the video which helps you whenever you revisit the same video and tells you the checkpoints where you left last time",
   "permissions": ["storage", "tabs"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
@@ -30,8 +30,11 @@
       "24": "assets/ext-icon.png",
       "32": "assets/ext-icon.png"
     },
-    "default_title": "My YT Bookmarks",
+    "default_title": "Youtube Marker",
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "assets/ext-icon.png"
   },
   "manifest_version": 3
 }
