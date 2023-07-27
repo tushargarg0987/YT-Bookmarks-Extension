@@ -1,7 +1,7 @@
 {
-  "name": "Youtube Marker",
-  "version": "0.1",
-  "description": "A Youtube learning companion which heps you mark the timestamps of the important points of the video which helps you whenever you revisit the same video and tells you the checkpoints where you left last time",
+  "name": "Youtube Bookmarker",
+  "version": "0.2",
+  "description": "A youtube learning companion which helps you mark the timestamps of the important points of the video",
   "permissions": ["storage", "tabs"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
@@ -30,7 +30,7 @@
       "24": "assets/ext-icon.png",
       "32": "assets/ext-icon.png"
     },
-    "default_title": "Youtube Marker",
+    "default_title": "Youtube Bookmarker",
     "default_popup": "popup.html"
   },
   "icons": {

@@ -92,7 +92,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   else {
     const container = document.getElementsByClassName("container")[0];
 
-    container.innerHTML = '<div class="title">Let\'s visit youtube and start bookmarking.</div>';
+    // container.innerHTML = '<div class="title">Let\'s visit youtube and start bookmarking.</div>';
+    window.open("https://www.youtube.com/")
   }
 });
 

@@ -69,7 +69,6 @@
     }
   });
 
-  newVideoLoaded();
 })();
 
 const getTime = t => {
